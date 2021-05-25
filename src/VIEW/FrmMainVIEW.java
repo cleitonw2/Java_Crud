@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package VIEW;
 
 import java.text.DateFormat;
 import java.util.Date;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 
 /**
@@ -74,6 +69,12 @@ public class FrmMainVIEW extends javax.swing.JFrame {
 
         menuRegisterUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
         menuRegisterUser.setText("Usuário");
+        menuRegisterUser.setEnabled(false);
+        menuRegisterUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuRegisterUserActionPerformed(evt);
+            }
+        });
         menuRegister.add(menuRegisterUser);
 
         menuBar.add(menuRegister);
@@ -90,6 +91,7 @@ public class FrmMainVIEW extends javax.swing.JFrame {
 
         menuDeleteUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_MASK));
         menuDeleteUser.setText("Usuário");
+        menuDeleteUser.setEnabled(false);
         menuDelete.add(menuDeleteUser);
 
         menuBar.add(menuDelete);
@@ -157,6 +159,12 @@ public class FrmMainVIEW extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuOptionGoOutActionPerformed
 
+    private void menuRegisterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegisterUserActionPerformed
+        // chama tela de cadastro de usuário
+        FrmUserCreateVIEW userCreate = new FrmUserCreateVIEW();
+        userCreate.setVisible(true);
+    }//GEN-LAST:event_menuRegisterUserActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -195,15 +203,15 @@ public class FrmMainVIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblUser;
+    public static javax.swing.JLabel lblUser;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuDelete;
-    private javax.swing.JMenuItem menuDeleteUser;
+    public static javax.swing.JMenuItem menuDeleteUser;
     private javax.swing.JMenu menuEdit;
     private javax.swing.JMenuItem menuEditUser;
     private javax.swing.JMenu menuOption;
     private javax.swing.JMenuItem menuOptionGoOut;
     private javax.swing.JMenu menuRegister;
-    private javax.swing.JMenuItem menuRegisterUser;
+    public static javax.swing.JMenuItem menuRegisterUser;
     // End of variables declaration//GEN-END:variables
 }

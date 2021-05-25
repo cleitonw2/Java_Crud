@@ -5,7 +5,23 @@ public class UserDTO {
     private String name;
     private String login;
     private String password;
+    private String roles;
 
+    
+     /**
+     * @return the roles
+     */
+    public String getRoles() {
+        return roles;
+    }
+
+    /**
+     * @param roles the roles to set
+     */
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+    
     /**
      * @return the name
      */

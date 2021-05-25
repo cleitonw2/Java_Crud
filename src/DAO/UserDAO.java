@@ -15,7 +15,7 @@ public class UserDAO {
         connection = new ConnectionDAO().dbConnection();
 
         try {
-            String sql = "select * from usuario where login=? and password=?";
+            String sql = "select * from users where login=? and password=?";
             PreparedStatement pst = connection.prepareStatement(sql);
             pst.setString(1, objtUserDTO.getLogin());
             pst.setString(2, objtUserDTO.getPassword());

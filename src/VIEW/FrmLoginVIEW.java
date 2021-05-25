@@ -7,6 +7,7 @@ package VIEW;
 
 import DAO.UserDAO;
 import DTO.UserDTO;
+import java.awt.Color;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -103,10 +104,27 @@ public class FrmLoginVIEW extends javax.swing.JFrame {
             ResultSet rsUserDao = userDao.userAuthentication(user);
 
             if (rsUserDao.next()) {
-                FrmMainVIEW mainView = new FrmMainVIEW();
-                mainView.setVisible(true);
-                
-                dispose();
+                String roles = rsUserDao.getString(4);
+
+                if ("admin".equals(roles)) {
+                    FrmMainVIEW mainView = new FrmMainVIEW();
+                    mainView.setVisible(true);
+
+                    FrmMainVIEW.menuRegisterUser.setEnabled(true);
+                    FrmMainVIEW.menuDeleteUser.setEnabled(true);
+                    FrmMainVIEW.lblUser.setText(rsUserDao.getString(3));
+                    FrmMainVIEW.lblUser.setText(rsUserDao.getString(3));
+                    FrmMainVIEW.lblUser.setForeground(Color.red);
+
+                    dispose();
+                } else {
+                    FrmMainVIEW mainView = new FrmMainVIEW();
+                    mainView.setVisible(true);
+                    FrmMainVIEW.lblUser.setText(rsUserDao.getString(3));
+
+                    dispose();
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválido!");
             }
