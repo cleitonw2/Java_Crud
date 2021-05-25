@@ -5,6 +5,11 @@
  */
 package VIEW;
 
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Cleit
@@ -27,32 +32,130 @@ public class FrmMainVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lblUser = new javax.swing.JLabel();
+        lblDate = new javax.swing.JLabel();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        menuBar = new javax.swing.JMenuBar();
+        menuRegister = new javax.swing.JMenu();
+        menuRegisterUser = new javax.swing.JMenuItem();
+        menuEdit = new javax.swing.JMenu();
+        menuEditUser = new javax.swing.JMenuItem();
+        menuDelete = new javax.swing.JMenu();
+        menuDeleteUser = new javax.swing.JMenuItem();
+        menuOption = new javax.swing.JMenu();
+        menuOptionGoOut = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel1.setText("Tela Principal");
+        lblUser.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lblUser.setText("Usuário");
+
+        lblDate.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lblDate.setText("Data");
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 796, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        menuRegister.setText("Cadastrar");
+
+        menuRegisterUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        menuRegisterUser.setText("Usuário");
+        menuRegister.add(menuRegisterUser);
+
+        menuBar.add(menuRegister);
+
+        menuEdit.setText("Editar");
+
+        menuEditUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK));
+        menuEditUser.setText("Usuario");
+        menuEdit.add(menuEditUser);
+
+        menuBar.add(menuEdit);
+
+        menuDelete.setText("Deletar");
+
+        menuDeleteUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.ALT_MASK));
+        menuDeleteUser.setText("Usuário");
+        menuDelete.add(menuDeleteUser);
+
+        menuBar.add(menuDelete);
+
+        menuOption.setText("Opções");
+
+        menuOptionGoOut.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.ALT_MASK));
+        menuOptionGoOut.setText("Sair");
+        menuOptionGoOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuOptionGoOutActionPerformed(evt);
+            }
+        });
+        menuOption.add(menuOptionGoOut);
+
+        menuBar.add(menuOption);
+
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUser, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1)
-                .addContainerGap(229, Short.MAX_VALUE))
+                .addGap(84, 84, 84)
+                .addComponent(lblUser)
+                .addGap(46, 46, 46)
+                .addComponent(lblDate)
+                .addContainerGap(384, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane1)
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // substitui a label lblDate pela data atual do sistema ao inicia o form
+        Date date = new Date();
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+        lblDate.setText(dateFormat.format(date));
+
+    }//GEN-LAST:event_formWindowActivated
+
+    private void menuOptionGoOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionGoOutActionPerformed
+        //exibe uma caixa de diálogo JOptionPane
+        int goOut = JOptionPane.showConfirmDialog(null,"Tem serteza que deseja sair? ","Atenção", JOptionPane.YES_OPTION);
+        
+        if(goOut == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_menuOptionGoOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,6 +193,17 @@ public class FrmMainVIEW extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblUser;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuDelete;
+    private javax.swing.JMenuItem menuDeleteUser;
+    private javax.swing.JMenu menuEdit;
+    private javax.swing.JMenuItem menuEditUser;
+    private javax.swing.JMenu menuOption;
+    private javax.swing.JMenuItem menuOptionGoOut;
+    private javax.swing.JMenu menuRegister;
+    private javax.swing.JMenuItem menuRegisterUser;
     // End of variables declaration//GEN-END:variables
 }
