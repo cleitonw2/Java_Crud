@@ -112,6 +112,7 @@ public class FrmLoginVIEW extends javax.swing.JFrame {
 
                     FrmMainVIEW.menuRegisterUser.setEnabled(true);
                     FrmMainVIEW.menuDeleteUser.setEnabled(true);
+                    FrmMainVIEW.menuListUsers.setEnabled(true);
                     FrmMainVIEW.lblUser.setText(rsUserDao.getString(3));
                     FrmMainVIEW.lblUser.setText(rsUserDao.getString(3));
                     FrmMainVIEW.lblUser.setForeground(Color.red);

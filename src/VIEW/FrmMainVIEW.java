@@ -1,4 +1,3 @@
-
 package VIEW;
 
 import java.text.DateFormat;
@@ -39,6 +38,7 @@ public class FrmMainVIEW extends javax.swing.JFrame {
         menuDeleteUser = new javax.swing.JMenuItem();
         menuOption = new javax.swing.JMenu();
         menuOptionGoOut = new javax.swing.JMenuItem();
+        menuListUsers = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(880, 680));
@@ -110,6 +110,16 @@ public class FrmMainVIEW extends javax.swing.JFrame {
         });
         menuOption.add(menuOptionGoOut);
 
+        menuListUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.ALT_MASK));
+        menuListUsers.setText("Listar usuários");
+        menuListUsers.setEnabled(false);
+        menuListUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuListUsersActionPerformed(evt);
+            }
+        });
+        menuOption.add(menuListUsers);
+
         menuBar.add(menuOption);
 
         setJMenuBar(menuBar);
@@ -156,19 +166,24 @@ public class FrmMainVIEW extends javax.swing.JFrame {
 
     private void menuOptionGoOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOptionGoOutActionPerformed
         //exibe uma caixa de diálogo JOptionPane
-        int goOut = JOptionPane.showConfirmDialog(null,"Tem serteza que deseja sair? ","Atenção", JOptionPane.YES_OPTION);
-        
-        if(goOut == JOptionPane.YES_OPTION) {
+        int goOut = JOptionPane.showConfirmDialog(null, "Tem serteza que deseja sair? ", "Atenção", JOptionPane.YES_OPTION);
+
+        if (goOut == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }//GEN-LAST:event_menuOptionGoOutActionPerformed
 
     private void menuRegisterUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuRegisterUserActionPerformed
         // chama tela de cadastro de usuário dentro do desktop
-       FrmUserCreateVIEW userView = new FrmUserCreateVIEW();
-       userView.setVisible(true);
-       desktop.add(userView);
+        FrmUserCreateVIEW userView = new FrmUserCreateVIEW();
+        userView.setVisible(true);
+        desktop.add(userView);
     }//GEN-LAST:event_menuRegisterUserActionPerformed
+
+    private void menuListUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuListUsersActionPerformed
+        FrmListUsersVIEW listUserView = new FrmListUsersVIEW();
+        listUserView.setVisible(true);
+    }//GEN-LAST:event_menuListUsersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,6 +229,7 @@ public class FrmMainVIEW extends javax.swing.JFrame {
     public static javax.swing.JMenuItem menuDeleteUser;
     private javax.swing.JMenu menuEdit;
     private javax.swing.JMenuItem menuEditUser;
+    public static javax.swing.JMenuItem menuListUsers;
     private javax.swing.JMenu menuOption;
     private javax.swing.JMenuItem menuOptionGoOut;
     private javax.swing.JMenu menuRegister;

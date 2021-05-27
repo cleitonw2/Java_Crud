@@ -63,9 +63,9 @@ public class UserDAO {
             while (rs.next()) {
                 UserDTO objtUserDdto = new UserDTO();
                 objtUserDdto.setLogin(rs.getString("login"));
-                objtUserDdto.setName("name");
-                objtUserDdto.setPassword("password");
-                objtUserDdto.setRoles("roles");
+                objtUserDdto.setName(rs.getString("name"));
+                objtUserDdto.setPassword(rs.getString("password"));
+                objtUserDdto.setRoles(rs.getString("roles"));
 
                 list.add(objtUserDdto);
             }
